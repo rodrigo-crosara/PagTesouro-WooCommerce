@@ -44,6 +44,5 @@ O PagTesouro para WooCommerce é um projeto open-source e aceitamos contribuiç�
 # Autor
 Rodrigo Crosara (rodrigo@seustyle.net)
 
-#Licença
-
+# Licença
 O PagTesouro para WooCommerce é distribuído sob a licença MIT.
