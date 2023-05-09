@@ -6,21 +6,21 @@ O PagTesouro para WooCommerce é um plugin que adiciona o método de pagamento P
 
 Para instalar o PagTesouro para WooCommerce, siga os passos abaixo:
 
-1 - Faça o download do plugin em formato zip.
-2 - Na área administrativa do WordPress, vá até a seção Plugins e clique em Adicionar novo.
-3 - Selecione o botão Upload e selecione o arquivo zip do plugin que você baixou.
-4 - Clique no botão Instalar agora e aguarde o processo de instalação.
-5 - Após a instalação, ative o plugin.
+- Faça o download do plugin em formato zip.
+- Na área administrativa do WordPress, vá até a seção Plugins e clique em Adicionar novo.
+- Selecione o botão Upload e selecione o arquivo zip do plugin que você baixou.
+- Clique no botão Instalar agora e aguarde o processo de instalação.
+- Após a instalação, ative o plugin.
 
 # Configuração
 
 Para configurar o PagTesouro para WooCommerce, siga os passos abaixo:
 
-1 - Na área administrativa do WordPress, vá até a seção WooCommerce e clique em Configurações.
-2 - Selecione a aba Pagamentos.
-3 - Localize o método de pagamento PagTesouro e clique em Gerenciar.
-4 - Preencha as informações solicitadas, como título, descrição, client_id e client_secret.
-5 - Salve as alterações.
+- Na área administrativa do WordPress, vá até a seção WooCommerce e clique em Configurações.
+- Selecione a aba Pagamentos.
+- Localize o método de pagamento PagTesouro e clique em Gerenciar.
+- Preencha as informações solicitadas, como título, descrição, client_id e client_secret.
+- Salve as alterações.
 
 Pronto! O PagTesouro para WooCommerce já está configurado e pronto para ser utilizado.
 
@@ -36,10 +36,10 @@ Se você tiver algum problema ou sugestão para melhorar o plugin, por favor, in
 
 O PagTesouro para WooCommerce é um projeto open-source e aceitamos contribuições da comunidade. Para contribuir com o projeto, siga os passos abaixo:
 
-1 - Faça um fork do projeto.
-2 - Crie um branch para a sua contribuição.
-3 - Faça as alterações desejadas.
-4 - Faça um pull request para o branch master do projeto.
+- Faça um fork do projeto.
+- Crie um branch para a sua contribuição.
+- Faça as alterações desejadas.
+- Faça um pull request para o branch master do projeto.
 
 # Autor
 Rodrigo Crosara (rodrigo@seustyle.net)
