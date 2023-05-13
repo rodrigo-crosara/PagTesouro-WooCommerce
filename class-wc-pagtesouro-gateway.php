@@ -29,6 +29,16 @@ class WC_PagTesouro_Gateway extends WC_Payment_Gateway
         $this->url_retorno = $this->get_option('url_retorno');
         $this->url_notificacao = $this->get_option('url_notificacao');
 
+        // Verifique se o modo de teste está habilitado
+        $test_mode = isset($this->settings['test_mode']) ? $this->settings['test_mode'] : false;
+        
+        // Defina as propriedades do gateway com base no modo de teste
+        if ($test_mode) {
+            $this->domain = 'https://valpagtesouro.tesouro.gov.br';
+        } else {
+            $this->domain = 'https://pagtesouro.tesouro.gov.br';
+        }
+
         // Adiciona uma ação para salvar as configurações quando o formulário for enviado
         add_action('woocommerce_update_options_payment_gateways_' . $this->id, array($this, 'process_admin_options'));
     }
@@ -43,6 +53,12 @@ class WC_PagTesouro_Gateway extends WC_Payment_Gateway
                 'type' => 'checkbox',
                 'label' => 'Habilitar PagTesouro',
                 'default' => 'yes'
+            ),
+            'test_mode' => array(
+                'title'   => 'Modo de Teste',
+                'type'    => 'checkbox',
+                'label'   => 'Habilitar Modo de Teste',
+                'default' => 'no',
             ),
             // Campo para definir o título do gateway de pagamento
             'title' => array(
@@ -80,7 +96,7 @@ class WC_PagTesouro_Gateway extends WC_Payment_Gateway
             'url_retorno' => array(
                 'title' => 'URL Retorno',
                 'type' => 'text',
-                'description' => 'URL do sistema cliente para onde o usuário será redirecionado ao selecionar a opção Concluir na tela de confirmação de pagamento do PagTesouro. Esta URL é obrigatória apenas quando for utilizado o parâmetro "modoNavegacao": "1". Exemplo: https://valpagtesouro.tesouro.gov.br/simulador',
+                'description' => 'URL do sistema cliente para onde o usuário será redirecionado ao selecionar a opção Concluir na tela de confirmação de pagamento do PagTesouro. Esta URL é obrigatória apenas quando for utilizado o parâmetro "modoNavegacao": "1". Exemplo: ' . $this->domain . '/simulador',
                 'default' => '',
                 'desc_tip' => true,
             ),
@@ -159,7 +175,7 @@ class WC_PagTesouro_Gateway extends WC_Payment_Gateway
 
         // Inicia uma sessão cURL para fazer a requisição de pagamento
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, 'https://valpagtesouro.tesouro.gov.br/api/gru/solicitacao-pagamento');
+        curl_setopt($ch, CURLOPT_URL, $this->domain . '/api/gru/solicitacao-pagamento');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
@@ -213,7 +229,7 @@ class WC_PagTesouro_Gateway extends WC_Payment_Gateway
                     var idPagamento = "' . $result->idPagamento . '";
                     var token = "' . $access_token . '";
                     var xhr = new XMLHttpRequest();
-                    xhr.open("GET", "https://valpagtesouro.tesouro.gov.br/api/gru/pagamentos/" + idPagamento);
+                    xhr.open("GET", "' . $this->domain . '/api/gru/pagamentos/" + idPagamento);
                     xhr.setRequestHeader("Authorization", "Bearer " + token);
                     xhr.onreadystatechange = function() {
                         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
