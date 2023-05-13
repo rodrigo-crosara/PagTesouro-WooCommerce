@@ -2,8 +2,8 @@
 /*
 Plugin Name: PagTesouro para WooCommerce
 Description: Adiciona o método de pagamento PagTesouro ao WooCommerce
-Version: 1.1
-Author: Rodrigo Crosara
+Version: 1.2
+Author: Rodrigo Crosara (rodrigo@seustyle.net)
 */
 
 if (!defined('ABSPATH')) {
@@ -16,6 +16,9 @@ function init_pagtesouro_gateway() {
     if (!class_exists('WC_Payment_Gateway')) {
         return;
     }
+
+    // Declare a variável $domain como global
+    global $domain;
 
     // Inclua a classe WC_PagTesouro_Gateway
     require_once plugin_dir_path(__FILE__) . 'class-wc-pagtesouro-gateway.php';
@@ -76,7 +79,7 @@ function init_pagtesouro_gateway() {
             if (!empty($id_pagamento)) {
                 // Adicione o botão personalizado com o link de consulta do pagamento
                 $actions['custom_payment_check'] = array(
-                    'url'    => 'https://valpagtesouro.tesouro.gov.br/api/gru/pagamentos/' . $id_pagamento,
+                    'url'    => $domain . '/api/gru/pagamentos/' . $id_pagamento,
                     'name'   => __('Verificar Pagamento', 'text-domain'),
                     'action' => "custom_payment_check",
                 );
