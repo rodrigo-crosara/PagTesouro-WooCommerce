@@ -1,4 +1,8 @@
 <?php
+/*
+Version: 1.2.1
+Author: Rodrigo Crosara (rodrigo@seustyle.net)
+*/
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
@@ -117,13 +121,6 @@ class WC_PagTesouro_Gateway extends WC_Payment_Gateway
         if ($this->description) {
             echo wpautop(wp_kses_post($this->description));
         }
-        
-        // Exibe o botão de pagamento
-        ?>
-        <p>
-            <button type="submit" class="button-alt" name="woocommerce_checkout_place_order" id="place_order" value="Pagar com PagTesouro">Pagar com PagTesouro</button>
-        </p>
-        <?php
     }
 
     public function process_payment($order_id)
