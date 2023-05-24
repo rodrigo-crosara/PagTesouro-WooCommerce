@@ -28,7 +28,6 @@ Para configurar o PagTesouro para WooCommerce, siga os passos abaixo:
 - Salve as alterações.
 
 Pronto! O PagTesouro para WooCommerce já está configurado e pronto para ser utilizado.
-Atenção: Deixe habilitado o "Modo de Teste" para
 
 # Versão Beta
 
