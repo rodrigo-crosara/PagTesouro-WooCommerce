@@ -1,6 +1,10 @@
 # PagTesouro para WooCommerce (Versão Beta)
 
-O PagTesouro para WooCommerce é um plugin que adiciona o método de pagamento PagTesouro ao WooCommerce. Com o plugin, é possível receber pagamentos pelo PagTesouro diretamente em sua loja virtual.
+O PagTesouro para WooCommerce é um plugin que adiciona o método de pagamento PagTesouro ao WooCommerce. Com o plugin, é possível receber pagamentos pelo PagTesouro diretamente em sua loja virtual. O PagTesouro atua no cenário de recolhimento de receitas de Órgãos Públicos Federais, como taxas (custas judiciais, emissão de passaporte etc), aluguéis de imóveis públicos, serviços administrativos e educacionais, multas, entre outros, permitindo o pagamento em forma digital, assim como a impressão do boleto de pagamento.
+
+O plugin é open-source e está sendo desenvolvido com base na API do PagTesouro, disponível no link: https://valpagtesouro.tesouro.gov.br/simulador/#/pages/api. Isso significa que qualquer pessoa pode contribuir para o desenvolvimento do plugin e ajudar a melhorá-lo.
+
+Alguns dos benefícios do uso do plugin incluem a facilidade de pagamento para os clientes, a integração com o sistema de recolhimento de receitas dos Órgãos Públicos Federais e a possibilidade de pagamento em forma digital. Além disso, como o plugin é open-source, ele pode ser adaptado às necessidades específicas de cada loja virtual.
 
 # Instalação
 
@@ -19,10 +23,12 @@ Para configurar o PagTesouro para WooCommerce, siga os passos abaixo:
 - Na área administrativa do WordPress, vá até a seção WooCommerce e clique em Configurações.
 - Selecione a aba Pagamentos.
 - Localize o método de pagamento PagTesouro e clique em Gerenciar.
-- Preencha as informações solicitadas, como título, descrição, client_id e client_secret.
+- Deixe marcado "Modo de Teste" para utilizar o ambiente de Testes do PagTesouro para os Órgãos que estejam em processo de integração dos seus sistemas a esta solução de pagamentos. Uma vez que todos os passos necessários foram seguidos e devidamente testados neste ambiente, o último passo é desmarcar essa opção e ele levará tudo para produção.
+- Preencha as informações solicitadas, como título, descrição, Token de Acesso e Código do Serviço.
 - Salve as alterações.
 
 Pronto! O PagTesouro para WooCommerce já está configurado e pronto para ser utilizado.
+Atenção: Deixe habilitado o "Modo de Teste" para
 
 # Versão Beta
 
